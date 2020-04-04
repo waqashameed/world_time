@@ -25,7 +25,7 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text(time),
+      body: SafeArea(child: Text(time)),
     );
   }
 }
