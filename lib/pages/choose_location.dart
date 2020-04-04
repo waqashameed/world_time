@@ -6,6 +6,8 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
+  int num = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +20,13 @@ class _ChooseLocationState extends State<ChooseLocation> {
         centerTitle: true,
         elevation: 0.0,
       ),
-      body: Text('Choose Location'),
+      body: RaisedButton(
+          child: Text('Button pressed $num times'),
+          onPressed: () {
+            setState(() {
+              num += 1;
+            });
+          }),
     );
   }
 }
