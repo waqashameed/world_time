@@ -7,13 +7,14 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  String time = 'loading';
   void callWorldTime() async {
     WorldTime worldTime = WorldTime(
         location: 'Karachi', flag: 'pakistan.png', url: 'Asia/Karachi');
     await worldTime.getTime();
-    setState(() {
-      time = worldTime.time;
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
+      'location': worldTime.location,
+      'flag': worldTime.flag,
+      'time': worldTime.time,
     });
   }
 
@@ -25,7 +26,7 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: Text(time)),
+      body: SafeArea(child: Text('loading')),
     );
   }
 }
