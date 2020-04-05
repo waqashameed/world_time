@@ -1,5 +1,7 @@
 import 'package:http/http.dart';
+import 'package:intl/intl.dart';
 import 'dart:convert';
+//import 'package:intl/intl_browser.dart';
 
 class WorldTime {
   String location; // Location name for UI
@@ -26,7 +28,8 @@ class WorldTime {
 
       DateTime now = DateTime.parse(datetime);
       now = now.add(Duration(hours: int.parse(offset)));
-      time = now.toString();
+      time = DateFormat.jm().format(now);
+      //time = now.toString();
     } catch (e) {
       time = 'Failed to get data: $e';
     }
