@@ -20,15 +20,24 @@ class WorldTime {
 
       String datetime = data['datetime'];
       String offset = data['utc_offset'];
+      String offsetAddSub = data['utc_offset'];
       offset = offset.substring(1, 3);
+      offsetAddSub = offsetAddSub.substring(0, 1);
+      print(offsetAddSub);
 
       //print(datetime);
-      //print(offset);
+      print(offset);
 
       //Creating Datetime
 
       DateTime now = DateTime.parse(datetime);
-      now = now.add(Duration(hours: int.parse(offset)));
+
+      if (offsetAddSub.contains('+')) {
+        now = now.add(Duration(hours: int.parse(offset)));
+      } else {
+        now = now.subtract(Duration(hours: int.parse(offset)));
+      }
+      //now = now.add(Duration(hours: int.parse(offset)));
       isDaytime = now.hour > 6 && now.hour < 19;
 
       time = DateFormat.jm().format(now);
