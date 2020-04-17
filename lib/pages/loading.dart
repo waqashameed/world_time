@@ -13,6 +13,7 @@ class _LoadingState extends State<Loading> {
     WorldTime worldTime = WorldTime(
         location: 'Karachi', flag: 'pakistan.png', url: 'Asia/Karachi');
     await worldTime.getTime();
+
     Navigator.pushReplacementNamed(context, '/home', arguments: {
       'location': worldTime.location,
       'flag': worldTime.flag,

@@ -10,4 +10,5 @@ void main() => runApp(MaterialApp(
         '/home': (context) => Home(),
         '/location': (context) => ChooseLocation(),
       },
-    ));
+    ),
+    );

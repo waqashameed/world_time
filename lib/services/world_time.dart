@@ -20,13 +20,14 @@ class WorldTime {
 
       String datetime = data['datetime'];
       String offset = data['utc_offset'];
+
       String offsetAddSub = data['utc_offset'];
       offset = offset.substring(1, 3);
       offsetAddSub = offsetAddSub.substring(0, 1);
-      print(offsetAddSub);
+      //print(offsetAddSub);
 
       //print(datetime);
-      print(offset);
+      //print(offset);
 
       //Creating Datetime
 
